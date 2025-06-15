@@ -106,9 +106,9 @@ let filename = "";
         });
 
         output = output.trimEnd(); // remove trailing blank lines
-        let inter = "Inter";
-        let intro1 = "Intro 1\n";
-        let intro2 = "Intro 2\n";
+        let inter = "[Inter]";
+        let intro1 = "[Intro 1]\n";
+        let intro2 = "[Intro 2]\n";
         inter = inter + "\n" + document.getElementById("interText").value;
         intro1 = intro1 + "\n" + document.getElementById("intro1Text").value;
         intro2 = intro2 + "\n" + document.getElementById("intro2Text").value;
@@ -182,10 +182,13 @@ let filename = "";
         contextMenu.style.display = "block";
       });
 
-      document.body.addEventListener(
-        "click",
-        () => (contextMenu.style.display = "none")
-      );
+      let menuTimeout;
+
+document.body.addEventListener("click", () => {
+  contextMenu.style.display = "none";
+});
+
+
 
       function makeDraggable(el) {
         el.addEventListener("dragend", function (e) {
